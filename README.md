@@ -48,6 +48,42 @@ Edit the `.env` file with your settings:
 SENDGRID_API_KEY=your_api_key_here
 ```
 
+### Filter Configuration
+
+Create or edit `config.yaml` to set up your job search filters:
+```yaml
+search_criteria:
+  keywords: ["python", "software engineer"]
+  location: "San Francisco, CA"
+  experience_level: "Entry Level"
+  job_type: "Full-time"
+
+filters:
+  salary:
+    min: 80000
+    max: 150000
+    currency: "USD"
+  
+  required_skills:
+    - python
+    - sql
+    - git
+  
+  exclude_keywords:
+    - senior
+    - lead
+    - manager
+  
+  company_blacklist:
+    - "Company Name 1"
+    - "Company Name 2"
+  
+  remote_only: true
+  posted_within_days: 7
+```
+
+The bot will automatically filter jobs based on these criteria.
+
 ## Usage
 
 1. Set your job search criteria in `config.yaml`:
@@ -93,20 +129,3 @@ job_search_bot/
 └── main.py         # Main application entry point
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## Contact
-
-Your Name - [@yourusername](https://twitter.com/yourusername)
-
-Project Link: [https://github.com/yourusername/job-search-bot](https://github.com/yourusername/job-search-bot)

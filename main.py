@@ -1,6 +1,8 @@
 from scraper.linkedin_scraper import LinkedInScraper
 from filters.job_filter import JobFilter
 from notifications.notifier import JobNotifier
+import yaml
+import os
 
 
 def main():
@@ -12,12 +14,13 @@ def main():
     # Scrape jobs
     scraper.scrape_jobs("software engineer")
 
-    # Filter jobs
-    criteria = {
-        "location": "San Francisco",
-        "role": "Software Engineer",
-        "company": "Google",
-    }
+    # Load filter criteria from config.yaml
+
+    config_path = os.path.expanduser("~/code/job_search_bot/config.yaml")
+    with open(config_path, "r") as file:
+        config = yaml.safe_load(file)
+
+    criteria = config["filter_criteria"]
 
     matching_jobs = job_filter.filter_jobs(criteria)
 
