@@ -50,11 +50,37 @@ SENDGRID_API_KEY=your_api_key_here
 
 ## Usage
 
-1. Set your job search criteria in `main.py`
+1. Set your job search criteria in `config.yaml`:
+```yaml
+search_criteria:
+  keywords: ["python", "software engineer"]
+  location: "San Francisco, CA"
+  experience_level: "Entry Level"
+  job_type: "Full-time"
+```
+
 2. Run the bot:
 ```bash
 python main.py
 ```
+
+3. The bot will:
+   - Scrape LinkedIn jobs matching your criteria
+   - Filter results based on your preferences
+   - Store new jobs in the SQLite database
+   - Send email notifications for new matches
+
+4. Schedule automatic runs (optional):
+   - Linux/Mac (using cron):
+     ```bash
+     # Run every 6 hours
+     0 */6 * * * cd /path/to/job_search_bot && ./venv/bin/python main.py
+     ```
+   - Windows (using Task Scheduler):
+     - Create a new task
+     - Program: path\to\venv\Scripts\python.exe
+     - Arguments: path\to\job_search_bot\main.py
+     - Set trigger for desired schedule
 
 ## Project Structure
 
