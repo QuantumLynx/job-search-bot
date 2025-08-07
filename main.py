@@ -20,7 +20,7 @@ def main():
     with open(config_path, "r") as file:
         config = yaml.safe_load(file)
 
-    criteria = config["filter_criteria"]
+    criteria = config["search_criteria"]
 
     matching_jobs = job_filter.filter_jobs(criteria)
 
