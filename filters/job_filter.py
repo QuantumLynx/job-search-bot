@@ -5,9 +5,12 @@ from database.models import JobListing, engine
 
 
 class JobFilter:
-    def __init__(self):
-        Session = sessionmaker(bind=engine)
-        self.session = Session()
+    def __init__(self, session=None):
+        if session is None:
+            Session = sessionmaker(bind=engine)
+            self.session = Session()
+        else:
+            self.session = session
         nltk.download("punkt")
 
     def filter_jobs(self, criteria):
