@@ -50,7 +50,8 @@ SENDGRID_API_KEY=your_api_key_here
 
 ### Filter Configuration
 
-Create or edit `config.yaml` to set up your job search filters:
+Create or edit `config.yaml` to set up your job search filters. The filter section supports the following keys:
+
 ```yaml
 search_criteria:
   keywords: ["python", "software engineer"]
@@ -59,27 +60,9 @@ search_criteria:
   job_type: "Full-time"
 
 filters:
-  salary:
-    min: 80000
-    max: 150000
-    currency: "USD"
-  
-  required_skills:
-    - python
-    - sql
-    - git
-  
-  exclude_keywords:
-    - senior
-    - lead
-    - manager
-  
-  company_blacklist:
-    - "Company Name 1"
-    - "Company Name 2"
-  
-  remote_only: true
-  posted_within_days: 7
+  location: "San Francisco, CA"
+  role: "Software Engineer"
+  company: "OpenAI"
 ```
 
 The bot will automatically filter jobs based on these criteria.
